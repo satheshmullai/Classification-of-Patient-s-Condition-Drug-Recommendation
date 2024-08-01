@@ -4,18 +4,6 @@
 
 Discover the future of healthcare with our Flask web application, an innovative platform that classifies medical conditions from symptoms and recommends top-rated drugs. Leveraging advanced analytics, this project aims to assist healthcare professionals in staying updated with the latest treatments and medications by analyzing user reviews and predicting medical conditions.
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [Software and Tools](#software-and-tools)
-3. [Project Details](#project-details)
-   - [Dataset](#dataset)
-   - [Data Preprocessing](#data-preprocessing)
-   - [Model Building](#model-building)
-4. [How to Run](#how-to-run)
-5. [Usage](#usage)
-6. [Future Enhancements](#future-enhancements)
-
 
 ## Introduction
 
