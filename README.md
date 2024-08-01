@@ -1,31 +1,95 @@
-### Classification of Patient's Condition & Drug Recommendation
-Discover the future of healthcare with our Flask web application, an innovative platform that classifies medical conditions from symptoms and recommends top-rated drugs.
-### Software and Tools requirements
-1.[GithubAccount](https://github.com)
-
-2.[VSCodeIDE](https://code.visualstudio.com/)
-
-    Create a new environment venv
+# Classification of Patient's Condition & Drug Recommendation
 
 ## Project Overview
-Drug recommendation systems powered by advanced analytics are rapidly becoming more important in healthcare. With vast amounts of medical data and research available, it can be challenging for healthcare professionals to stay up-to-date with the latest treatments and medications.
 
-These data-driven drug recommendation systems are transforming healthcare by helping professionals stay updated with treatments and medications. They analyze patient data to identify drug interactions and prevent errors, ensuring accurate dosing and better outcomes.
+Discover the future of healthcare with our Flask web application, an innovative platform that classifies medical conditions from symptoms and recommends top-rated drugs. Leveraging advanced analytics, this project aims to assist healthcare professionals in staying updated with the latest treatments and medications by analyzing user reviews and predicting medical conditions.
 
-In this project, we’ll create a recommendation system using NLP and machine learning to predict medical conditions and suggest the top 3 drugs based on reviews. We’ll start with the Drug Reviews dataset from the UCI ML Repository, preprocess the data, and build and evaluate models to classify conditions and recommend drugs with high ratings.
+## Table of Contents
 
-## Reading Dataset
-The dataset consists of 1,61,297 reviews of the users with 7 columns.
+1. [Introduction](#introduction)
+2. [Software and Tools](#software-and-tools)
+3. [Project Details](#project-details)
+   - [Dataset](#dataset)
+   - [Data Preprocessing](#data-preprocessing)
+   - [Model Building](#model-building)
+4. [How to Run](#how-to-run)
+5. [Usage](#usage)
+6. [Future Enhancements](#future-enhancements)
 
-The dataset consists of drug names, medical conditions, textual reviews of the user, rating given by the user, date of the review, and a total number of useful count which means a total number of users who find the review useful.
 
-To make it simple we will select the top 4 medical conditions i.e.,
+## Introduction
 
-      1.'Birth Control'
-      
-      2'Depression'
-      
-      3'Pain'
-      
-      4 'Anxiety' 
+In this project, we create a recommendation system using Natural Language Processing (NLP) and machine learning techniques to predict medical conditions based on textual reviews and suggest the top 3 drugs with high ratings. We utilize the Drug Reviews dataset from the UCI ML Repository to build and evaluate models, and provide a web application interface using Flask.
+
+## Software and Tools
+
+1. [Github Account](https://github.com) - For version control and collaboration.
+2. [VSCode IDE](https://code.visualstudio.com/) - For coding and development.
+3. Python Libraries:
+   - `Flask` for the web application.
+   - `pandas` for data manipulation.
+   - `scikit-learn` for machine learning.
+   - `nltk` for text processing.
+   - `BeautifulSoup` for HTML parsing.
+   - `pickle` for model serialization.
+
+## Project Details
+
+### Dataset
+
+The dataset consists of 161,297 user reviews with 7 columns:
+- Drug names
+- Medical conditions
+- Textual reviews
+- Ratings given by users
+- Date of the review
+- Total number of useful counts
+
+We focus on four key medical conditions:
+1. Birth Control
+2. Depression
+3. Pain
+4. Anxiety
+
+### Data Preprocessing
+
+1. **Load the Dataset**: Read the dataset files and combine them.
+2. **Clean the Data**:
+   - Remove irrelevant columns.
+   - Handle missing values.
+   - Filter for selected medical conditions.
+3. **Text Preprocessing**:
+   - Remove HTML tags.
+   - Convert text to lowercase and remove non-alphabetic characters.
+   - Remove stop words and apply lemmatization.
+4. **Feature Extraction**:
+   - Use TF-IDF vectorization with both unigrams and bigrams.
+   - Set `max_df=0.8` to exclude terms that appear in more than 80% of the documents.
+
+### Model Building
+
+1. **Train-Test Split**: Use 80% of the data for training and 20% for testing.
+2. **Model Training**:
+   - **Multinomial Naive Bayes**: Effective for textual data.
+   - **Passive-Aggressive Classifier**: Selected for better accuracy.
+3. **Evaluation**:
+   - Measure accuracy and confusion matrix.
+   - The Passive-Aggressive Classifier was chosen based on performance.
+  
+
+In the model building phase, we used two primary algorithms:
+
+1. **Multinomial Naive Bayes Algorithm**: This algorithm is well-suited for textual data and often performs effectively in text classification tasks.
+
+2. **Passive-Aggressive Classifier**: This algorithm showed superior performance compared to the Multinomial Naive Bayes Algorithm in terms of accuracy.
+
+Based on the evaluation results, the Passive-Aggressive Classifier demonstrated higher accuracy and thus, was selected as the primary model for predicting medical conditions.
+
+
+### Drug Recommendation
+
+Based on the predicted medical condition, recommend the top 3 drugs from the dataset with:
+- Ratings >= 9
+- Useful count >= 100
+
 
